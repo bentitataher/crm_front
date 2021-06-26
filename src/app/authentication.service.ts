@@ -33,4 +33,8 @@ export class AuthenticationService {
   getToken(){
     return localStorage.getItem('token')
   }
+
+  forgetService(data){
+    return this.http.post("http://localhost:3000/entreprise/password-forget", data)
+  }
 }

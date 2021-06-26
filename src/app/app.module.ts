@@ -35,7 +35,9 @@ import { RegisterCompleteComponent } from './views/component-user/authentication
 import { AuthenticationService } from '../app/authentication.service'
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthGuard } from './auth.guard';
-import { TokenInterceptorService } from './token-interceptor.service'
+import { TokenInterceptorService } from './token-interceptor.service';
+import { PasswordResetComponent } from './views/component-user/authentication/password-reset/password-reset.component';
+import { PasswordForgetComponent } from './views/component-user/authentication/password-forget/password-forget.component';
 
 @NgModule({
   imports: [
@@ -63,6 +65,8 @@ import { TokenInterceptorService } from './token-interceptor.service'
     LoginComponent,
     RegisterComponent,
     RegisterCompleteComponent,
+    PasswordResetComponent,
+    PasswordForgetComponent,
   ],
   providers: [{
     provide: LocationStrategy,
@@ -80,3 +84,4 @@ import { TokenInterceptorService } from './token-interceptor.service'
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }
+{ }

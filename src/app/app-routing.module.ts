@@ -10,6 +10,8 @@ import { LoginComponent } from './views/component-user/authentication/login/logi
 import { RegisterComponent } from './views/component-user/authentication//register/register.component';
 import { RegisterCompleteComponent } from './views/component-user/authentication/register-complete/register-complete.component';
 import { AuthGuard } from './auth.guard';
+import { PasswordResetComponent } from './views/component-user/authentication/password-reset/password-reset.component';
+import { PasswordForgetComponent } from './views/component-user/authentication/password-forget/password-forget.component';
 
 // Components User
 
@@ -50,6 +52,20 @@ export const routes: Routes = [
     }
   },
   {
+    path: 'password-forget',
+    component: PasswordForgetComponent,
+    data: {
+      title: 'Register Page'
+    }
+  },
+  {
+    path: 'password-reset/:token',
+    component: PasswordResetComponent,
+    data: {
+      title: 'Register Page'
+    }
+  },
+  {
     path: 'register-complete/:id',
     component: RegisterCompleteComponent,
   },
@@ -62,15 +78,18 @@ export const routes: Routes = [
     children: [
       {
         path: 'base',
-        loadChildren: () => import('./views/base/base.module').then(m => m.BaseModule)
+        loadChildren: () => import('./views/base/base.module').then(m => m.BaseModule),
+        canActivate : [AuthGuard]
       },
       {
         path: 'buttons',
-        loadChildren: () => import('./views/buttons/buttons.module').then(m => m.ButtonsModule)
+        loadChildren: () => import('./views/buttons/buttons.module').then(m => m.ButtonsModule),
+        canActivate : [AuthGuard]
       },
       {
         path: 'charts',
-        loadChildren: () => import('./views/chartjs/chartjs.module').then(m => m.ChartJSModule)
+        loadChildren: () => import('./views/chartjs/chartjs.module').then(m => m.ChartJSModule),
+        canActivate : [AuthGuard]
       },
       {
         path: 'dashboard',
