@@ -16,25 +16,29 @@ export class AuthenticationService {
   }
 
   // Compléter inscriptio
-  complete(data, id){
-    return this.http.put("http://localhost:3000/entreprise/"+id, data)
+  complete(data, id) {
+    return this.http.put("http://localhost:3000/entreprise/" + id, data)
   }
 
   // login
-  loginService(data){
+  loginService(data) {
     return this.http.post("http://localhost:3000/entreprise/login", data)
   }
 
   // Configuration auth guard
-  loggedIn(){
+  loggedIn() {
     return !!localStorage.getItem('token')
   }
 
-  getToken(){
+  getToken() {
     return localStorage.getItem('token')
   }
 
-  forgetService(data){
+  forgetService(data) {
     return this.http.post("http://localhost:3000/entreprise/password-forget", data)
+  }
+
+  resetService(data) {
+    return this.http.post("http://localhost:3000/entreprise/password-reset", data)
   }
 }
