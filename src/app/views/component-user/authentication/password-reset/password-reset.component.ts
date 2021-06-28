@@ -24,8 +24,9 @@ export class PasswordResetComponent implements OnInit {
   }
 
   reset() {
-    let id = this.route.snapshot.paramMap.get('token');
-    this._authentivationService.resetService(id)
+    this.resetPasswordForm.value.token = this.route.snapshot.paramMap.get('token');
+    let data = this.resetPasswordForm.value;
+    this._authentivationService.resetService(data)
       .subscribe((reset) => {
         console.log(reset);
       })
