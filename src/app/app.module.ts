@@ -38,6 +38,14 @@ import { AuthGuard } from './auth.guard';
 import { TokenInterceptorService } from './token-interceptor.service';
 import { PasswordResetComponent } from './views/component-user/authentication/password-reset/password-reset.component';
 import { PasswordForgetComponent } from './views/component-user/authentication/password-forget/password-forget.component';
+import { EntrepriseGestionComponent } from './views/component-admin/entreprise/entreprise-gestion/entreprise-gestion.component';
+import { EntrepriseModificationComponent } from './views/component-admin/entreprise/entreprise-modification/entreprise-modification.component';
+import { EntrepriseAjoutComponent } from './views/component-admin/entreprise/entreprise-ajout/entreprise-ajout.component';
+import { SecteurAjoutComponent } from './views/component-admin/secteur/secteur-ajout/secteur-ajout.component';
+import { SecteurGestionComponent } from './views/component-admin/secteur/secteur-gestion/secteur-gestion.component';
+import { SecteurModificationComponent } from './views/component-admin/secteur/secteur-modification/secteur-modification.component';
+import { SettingsComponent } from './views/component-admin/settings/settings.component';
+import { InterfaceComponent } from './views/component-admin/interface/interface.component';
 
 @NgModule({
   imports: [
@@ -67,6 +75,14 @@ import { PasswordForgetComponent } from './views/component-user/authentication/p
     RegisterCompleteComponent,
     PasswordResetComponent,
     PasswordForgetComponent,
+    EntrepriseGestionComponent,
+    EntrepriseModificationComponent,
+    EntrepriseAjoutComponent,
+    SecteurAjoutComponent,
+    SecteurGestionComponent,
+    SecteurModificationComponent,
+    SettingsComponent,
+    InterfaceComponent,
   ],
   providers: [{
     provide: LocationStrategy,
