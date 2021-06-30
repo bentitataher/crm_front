@@ -12,7 +12,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="icon-user"></i></span>
                     </div>
-                    <input formControlName="logo" type="file" class="form-control" placeholder="Entreprise" autocomplete="username" required>
+                    <input type="file" class="form-control" placeholder="Entreprise" autocomplete="username" required (change)="onFileSelect($event)">
                   </div>
                   <div class="input-group mb-3">
                     <div class="input-group-prepend">

@@ -16,8 +16,14 @@ export class RegisterCompleteComponent implements OnInit {
     private router: Router
   ) { }
 
+  logoUpload: File;
+
+  onFileSelect(event) {
+    this.logoUpload = event.target.files[0];
+    console.log("check point ==> : ", this.logoUpload);
+  }
+
   completeRegistrationForm = new FormGroup({
-    logo: new FormControl(''),
     tel: new FormControl(''),
     fax: new FormControl(''),
     siegeSocial: new FormControl(''),
@@ -28,11 +34,24 @@ export class RegisterCompleteComponent implements OnInit {
   }
 
   registrationComplete() {
+
     let id = this.route.snapshot.paramMap.get('id');
-    let data = this.completeRegistrationForm.value
-    this._authenticationService.complete(data, id)
-      .subscribe(entreprise => console.log(entreprise)
-      )
+    let data = this.completeRegistrationForm.value;
+
+    const formData = new FormData();
+    Object.keys(data).forEach((key) => {
+      formData.append(key, data[key])
+    });
+
+    formData.append('image', this.logoUpload, this.logoUpload.name);
+
+    this._authenticationService.complete(formData, id)
+      .subscribe((test) => {
+        console.log(test)
+      })
+
   }
+
+
 
 }
