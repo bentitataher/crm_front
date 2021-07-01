@@ -26,7 +26,8 @@ import { SecteurAjoutComponent } from './views/component-admin/secteur/secteur-a
 import { SecteurModificationComponent } from './views/component-admin/secteur/secteur-modification/secteur-modification.component';
 import { SecteurGestionComponent } from './views/component-admin/secteur/secteur-gestion/secteur-gestion.component';
 
-
+// Admin Setting component
+import { SettingsComponent } from './views/component-admin/settings/settings.component';
 
 export const routes: Routes = [
 
@@ -108,6 +109,10 @@ export const routes: Routes = [
   {
     path: 'admin-secteur-gestion',
     component: SecteurGestionComponent,
+  },
+  {
+    path: 'admin-setting',
+    component: SettingsComponent,
   },
   {
     path: '',
