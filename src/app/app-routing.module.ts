@@ -13,13 +13,18 @@ import { AuthGuard } from './auth.guard';
 import { PasswordResetComponent } from './views/component-user/authentication/password-reset/password-reset.component';
 import { PasswordForgetComponent } from './views/component-user/authentication/password-forget/password-forget.component';
 
-// Admin Entreprise component
+// Admin Entreprise components
 import { EntrepriseAjoutComponent } from './views/component-admin/entreprise/entreprise-ajout/entreprise-ajout.component'
 import { EntrepriseModificationComponent } from './views/component-admin/entreprise/entreprise-modification/entreprise-modification.component';
 import { EntrepriseGestionComponent } from './views/component-admin/entreprise/entreprise-gestion/entreprise-gestion.component';
 
 // Admin Interface Component
 import { InterfaceComponent } from './views/component-admin/interface/interface.component';
+
+// Admin Secteur components
+import { SecteurAjoutComponent } from './views/component-admin/secteur/secteur-ajout/secteur-ajout.component';
+import { SecteurModificationComponent } from './views/component-admin/secteur/secteur-modification/secteur-modification.component';
+import { SecteurGestionComponent } from './views/component-admin/secteur/secteur-gestion/secteur-gestion.component';
 
 
 
@@ -91,6 +96,18 @@ export const routes: Routes = [
   {
     path: 'admin-interface',
     component: InterfaceComponent,
+  },
+  {
+    path: 'admin-secteur-ajout',
+    component: SecteurAjoutComponent,
+  },
+  {
+    path: 'admin-secteur-modification/:id',
+    component: SecteurModificationComponent,
+  },
+  {
+    path: 'admin-secteur-gestion',
+    component: SecteurGestionComponent,
   },
   {
     path: '',
