@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms'
+import { FormGroup, FormControl } from '@angular/forms';
+import { AdminSecteurService } from '../../../../admin-secteur.service'
 
 @Component({
   selector: 'app-secteur-ajout',
@@ -8,7 +9,9 @@ import { FormGroup, FormControl } from '@angular/forms'
 })
 export class SecteurAjoutComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private _adminSecteurService: AdminSecteurService
+  ) { }
 
   ajoutSecteurForm = new FormGroup({
     descriptionSecteur: new FormControl(''),
@@ -18,9 +21,12 @@ export class SecteurAjoutComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  ajoutSecteur(){
-    console.log(this.ajoutSecteurForm.value);
-    
+  ajoutSecteur() {
+    let data = this.ajoutSecteurForm.value;
+    this._adminSecteurService.ajoutService(data)
+      .subscribe((secteur) => {
+        console.log(secteur);
+      })
   }
 
 
