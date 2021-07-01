@@ -15,4 +15,9 @@ export class AdminSecteurService {
       return this.http.post("http://localhost:3000/admin-secteur", data)
     }
 
+    // Get All Secteurs
+    getAllService(){
+      return this.http.get("http://localhost:3000/admin-secteur")
+    }
+
 }
