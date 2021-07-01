@@ -12,12 +12,15 @@ import { RegisterCompleteComponent } from './views/component-user/authentication
 import { AuthGuard } from './auth.guard';
 import { PasswordResetComponent } from './views/component-user/authentication/password-reset/password-reset.component';
 import { PasswordForgetComponent } from './views/component-user/authentication/password-forget/password-forget.component';
+
 // Admin Entreprise component
 import { EntrepriseAjoutComponent } from './views/component-admin/entreprise/entreprise-ajout/entreprise-ajout.component'
 import { EntrepriseModificationComponent } from './views/component-admin/entreprise/entreprise-modification/entreprise-modification.component';
 import { EntrepriseGestionComponent } from './views/component-admin/entreprise/entreprise-gestion/entreprise-gestion.component';
 
-// Components User
+// Admin Interface Component
+import { InterfaceComponent } from './views/component-admin/interface/interface.component';
+
 
 
 export const routes: Routes = [
@@ -84,6 +87,10 @@ export const routes: Routes = [
   {
     path: 'admin-entreprise-gestion',
     component: EntrepriseGestionComponent,
+  },
+  {
+    path: 'admin-interface',
+    component: InterfaceComponent,
   },
   {
     path: '',
