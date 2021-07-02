@@ -20,6 +20,11 @@ export class AdminSecteurService {
       return this.http.get("http://localhost:3000/admin-secteur")
     }
 
+    // Get One Secteur
+    getOneService(id){
+      return this.http.get("http://localhost:3000/admin-secteur/"+id)
+    }
+
     // Supprimer secteur
     deleteService(id){
       return this.http.delete("http://localhost:3000/admin-secteur/"+ id)
