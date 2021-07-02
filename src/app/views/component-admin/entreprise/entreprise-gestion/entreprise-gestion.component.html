@@ -21,13 +21,13 @@
                         </thead>
                         <tbody>
                             <tr *ngFor="let entreprise of entreprise; let i = index">
-                                <td>Entreprise</td>
-                                <td>Email</td>
-                                <td>Description</td>
-                                <td>Téléphone</td>
-                                <td>Fax</td>
-                                <td>Adresse</td>
-                                <td>Secteur d'activité</td>
+                                <td>{{entreprise.entreprise}}</td>
+                                <td>{{entreprise.email}}</td>
+                                <td>{{entreprise.description}}</td>
+                                <td>{{entreprise.tel}}</td>
+                                <td>{{entreprise.fax}}</td>
+                                <td>{{entreprise.siegeSocial}}</td>
+                                <td>{{entreprise.secteur}}</td>
                                 <td>
                                     <button type="button" class="btn btn-sm btn-primary"
                                         (click)="modifierEntreprise(i)">Modifier</button>
