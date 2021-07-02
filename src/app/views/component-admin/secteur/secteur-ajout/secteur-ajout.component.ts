@@ -27,6 +27,8 @@ export class SecteurAjoutComponent implements OnInit {
       .subscribe((secteur) => {
         console.log(secteur);
       })
+    
+    this.ajoutSecteurForm.reset();
   }
 
 

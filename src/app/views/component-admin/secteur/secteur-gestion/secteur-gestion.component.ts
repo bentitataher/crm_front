@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AdminSecteurService } from '../../../../admin-secteur.service'
 
 @Component({
   selector: 'app-secteur-gestion',
@@ -7,9 +8,33 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SecteurGestionComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private _adminSecteurService: AdminSecteurService
+  ) { }
+
+  public secteur : any;
 
   ngOnInit(): void {
+    this._adminSecteurService.getAllService()
+    .subscribe( (secteurGetted) =>{
+      this.secteur = secteurGetted;
+    })
+  }
+
+  modofierSecteur(i){
+    console.log(
+      "Test from modification",
+      "\n",this.secteur[i].secteur,
+      "\n",this.secteur[i].descriptionSecteur,
+    )
+  }
+
+  supprimerSecteur(i){
+    console.log(
+      "Test from supprimer",
+      "\n",this.secteur[i].secteur,
+      "\n",this.secteur[i].descriptionSecteur,
+    )
   }
 
 }

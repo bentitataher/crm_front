@@ -82,6 +82,7 @@ export const routes: Routes = [
     path: 'register-complete/:id',
     component: RegisterCompleteComponent,
   },
+  // Admin Entreprise
   {
     path: 'admin-entreprise-ajout',
     component: EntrepriseAjoutComponent,
@@ -94,10 +95,12 @@ export const routes: Routes = [
     path: 'admin-entreprise-gestion',
     component: EntrepriseGestionComponent,
   },
+  // Admin Interface
   {
     path: 'admin-interface',
     component: InterfaceComponent,
   },
+  // Admin Secteur
   {
     path: 'admin-secteur-ajout',
     component: SecteurAjoutComponent,
@@ -110,6 +113,7 @@ export const routes: Routes = [
     path: 'admin-secteur-gestion',
     component: SecteurGestionComponent,
   },
+  // Admin Setting
   {
     path: 'admin-setting',
     component: SettingsComponent,
