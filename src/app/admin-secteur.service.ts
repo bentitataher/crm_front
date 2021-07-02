@@ -25,6 +25,11 @@ export class AdminSecteurService {
       return this.http.get("http://localhost:3000/admin-secteur/"+id)
     }
 
+    // Modifier secteur
+    editService(id, data){
+      return this.http.put("http://localhost:3000/admin-secteur/"+ id, data)
+    }
+
     // Supprimer secteur
     deleteService(id){
       return this.http.delete("http://localhost:3000/admin-secteur/"+ id)

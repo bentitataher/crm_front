@@ -12,7 +12,7 @@ export class SecteurModificationComponent implements OnInit {
 
   constructor(
     private _adminSecteurService: AdminSecteurService,
-    private route : ActivatedRoute,
+    private route: ActivatedRoute,
   ) { }
 
   modifierSecteurForm = new FormGroup({
@@ -23,13 +23,19 @@ export class SecteurModificationComponent implements OnInit {
   ngOnInit(): void {
     let id = this.route.snapshot.paramMap.get('id');
     this._adminSecteurService.getOneService(id)
-      .subscribe( (secteurGetted)=>{
+      .subscribe((secteurGetted) => {
         this.modifierSecteurForm.patchValue(secteurGetted);
       })
   }
 
   modifierSecteur() {
+    let id = this.route.snapshot.paramMap.get('id');
+    let data = this.modifierSecteurForm.value;
 
+    this._adminSecteurService.editService(id, data)
+      .subscribe((updatedSecteur) => {
+        console.log(updatedSecteur);
+      })
   }
 
 }
