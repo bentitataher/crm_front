@@ -19,7 +19,7 @@ export class RegisterCompleteComponent implements OnInit {
   ) { }
 
   logoUpload: File;
-  secteur : any
+  secteur: any
 
   onFileSelect(event) {
     this.logoUpload = event.target.files[0];
@@ -35,10 +35,10 @@ export class RegisterCompleteComponent implements OnInit {
 
   ngOnInit(): void {
     this._adminSecteurService.getAllService()
-    .subscribe( (secteurGetted) =>{
-      this.secteur = secteurGetted;
-      console.log(this.secteur);
-    })
+      .subscribe((secteurGetted) => {
+        this.secteur = secteurGetted;
+        console.log(this.secteur);
+      })
   }
 
   registrationComplete() {

@@ -32,12 +32,16 @@
                     </div>
                     <input formControlName="siegeSocial" type="text-area" class="form-control" placeholder="Siège social" autocomplete="new-password" required>
                   </div>
-                  <div class="input-group mb-4">
+
+                  <div class="input-group mb-3">
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="icon-lock"></i></span>
                     </div>
-                    <input formControlName="secteur" type="text" class="form-control" placeholder="Secteur d'activité" autocomplete="new-password" required>
+                    <select formControlName="secteur" class="custom-select" id="inputGroupSelect01">
+                      <option *ngFor="let secteur of secteur">{{secteur.secteur}}</option>
+                    </select>
                   </div>
+
                   <button type="button" class="btn btn-block btn-success" (click)="registrationComplete()">Compléter mon compte compte</button>
                 </form>
                 {{completeRegistrationForm.value | json}}
