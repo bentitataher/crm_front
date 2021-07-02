@@ -11,7 +11,7 @@ export class SecteurGestionComponent implements OnInit {
 
   constructor(
     private _adminSecteurService: AdminSecteurService,
-    private router : Router
+    private router: Router
   ) { }
 
   public secteur: any;
@@ -23,12 +23,8 @@ export class SecteurGestionComponent implements OnInit {
       })
   }
 
-  modofierSecteur(i) {
-    console.log(
-      "Test from modification",
-      "\n", this.secteur[i].secteur,
-      "\n", this.secteur[i].descriptionSecteur,
-    )
+  modifierSecteur(i) {
+    this.router.navigate(['/admin-secteur-modification', this.secteur[i]._id])
   }
 
   supprimerSecteur(i) {
