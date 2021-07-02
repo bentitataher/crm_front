@@ -47,6 +47,7 @@ import { SecteurModificationComponent } from './views/component-admin/secteur/se
 import { SettingsComponent } from './views/component-admin/settings/settings.component';
 import { InterfaceComponent } from './views/component-admin/interface/interface.component';
 import { AdminSecteurService } from './admin-secteur.service';
+import { AdminEntrepriseService } from './admin-entreprise.service';
 
 @NgModule({
   imports: [
@@ -97,7 +98,8 @@ import { AdminSecteurService } from './admin-secteur.service';
     useClass: TokenInterceptorService,
     multi: true
   },
-  AdminSecteurService
+  AdminSecteurService,
+  AdminEntrepriseService
 ],
   bootstrap: [ AppComponent ]
 })
