@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { AuthenticationService } from '../../../../authentication.service';
+import { AdminSecteurService } from '../../../../admin-secteur.service';
 import { ActivatedRoute, Router } from '@angular/router'
 
 @Component({
@@ -13,10 +14,12 @@ export class RegisterCompleteComponent implements OnInit {
   constructor(
     private _authenticationService: AuthenticationService,
     private route: ActivatedRoute,
+    private _adminSecteurService: AdminSecteurService,
     private router: Router
   ) { }
 
   logoUpload: File;
+  secteur : any
 
   onFileSelect(event) {
     this.logoUpload = event.target.files[0];
@@ -31,6 +34,11 @@ export class RegisterCompleteComponent implements OnInit {
   })
 
   ngOnInit(): void {
+    this._adminSecteurService.getAllService()
+    .subscribe( (secteurGetted) =>{
+      this.secteur = secteurGetted;
+      console.log(this.secteur);
+    })
   }
 
   registrationComplete() {

@@ -1,39 +1,40 @@
 <div class="app-body mt-5">
-    <main class="main d-flex align-items-center mt-5">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-8 mx-auto">
-            <div class="card-group">
-              <div class="card p-4">
-                <div class="card-body">
-                  <form [formGroup]="modifierSecteurForm">
-                    <h1>Modifier secteur</h1>
-                    <div class="input-group mb-3">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text"><i class="icon-user"></i></span>
-                      </div>
-                      <input formControlName="descriptionSecteur" type="textarea" class="form-control" placeholder="Ajouter une description du secteur" required>
+  <main class="main d-flex align-items-center mt-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 mx-auto">
+          <div class="card-group">
+            <div class="card p-4">
+              <div class="card-body">
+                <form [formGroup]="modifierSecteurForm">
+                  <h1>Modifier secteur</h1>
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="icon-user"></i></span>
                     </div>
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                          <span class="input-group-text"><i class="icon-user"></i></span>
-                        </div>
-                        <input formControlName="secteur" type="text" class="form-control" placeholder="Ajouter le secteur" required>
-                      </div>
-                    <div class="row">
-                      <div class="col-6">
-                        <button type="button" class="btn btn-primary px-4" (click)="modifierSecteur()">Modifier</button>
-                        <button type="button" class="btn btn-danger px-4">Annuler</button>
-                      </div>
+                    <input formControlName="descriptionSecteur" type="textarea" class="form-control"
+                      placeholder="Ajouter une description du secteur" required>
+                  </div>
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="icon-user"></i></span>
                     </div>
-                  </form>
-                  {{modifierSecteurForm.value | json}}
-                </div>
+                    <input formControlName="secteur" type="text" class="form-control" placeholder="Ajouter le secteur"
+                      required>
+                  </div>
+                  <div class="row">
+                    <div class="col-6">
+                      <button type="button" class="btn btn-primary px-4" (click)="modifierSecteur()">Modifier</button>
+                      <button type="button" class="btn btn-danger px-4">Annuler</button>
+                    </div>
+                  </div>
+                </form>
+                {{modifierSecteurForm.value | json}}
               </div>
             </div>
           </div>
         </div>
       </div>
-    </main>
-  </div>
-  
+    </div>
+  </main>
+</div>
