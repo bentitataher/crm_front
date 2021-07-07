@@ -41,18 +41,14 @@
                         </div>
                     </div>
                     <div class="col-4">
-
-                        <div class="form-group">
-                            <div class="controls">
-                                <div class="input-prepend input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="icon-frame"></i></span>
-                                    </div>
-                                    <input class="form-control" size="16" type="text"
-                                        placeholder="Choisissez un secteur d'activité">
-                                </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text"><i class="icon-frame"></i></span>
                             </div>
-                        </div>
+                            <select formControlName="secteur" class="custom-select" id="inputGroupSelect01">
+                              <option *ngFor="let secteur of secteur">{{secteur.secteur}}</option>
+                            </select>
+                          </div>
                         <div class="form-group">
                             <div class="controls">
                                 <div class="input-prepend input-group">
@@ -97,7 +93,6 @@
                                 </div>
                             </div>
                         </div>
-
                         <div class="form-group">
                             <div class="controls">
                                 <div class="input-prepend input-group">
@@ -109,13 +104,13 @@
                                 </div>
                             </div>
                         </div>
-
-
                     </div>
+
                     <div class="col-12">
                         <button type="button" class="btn btn-block btn-success" (click)="registration()">Créer un
                             compte</button>
                     </div>
+
                 </div>
 
 
