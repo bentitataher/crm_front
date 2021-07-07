@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AdminSecteurService } from '../../../../admin-secteur.service';
 
 @Component({
   selector: 'app-entreprise-ajout',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EntrepriseAjoutComponent implements OnInit {
 
-  constructor() { }
+  public secteur : any;
+
+  constructor(
+    private _adminSecteurService: AdminSecteurService,  
+  ) { }
 
   ngOnInit(): void {
+    this._adminSecteurService.getAllService()
+      .subscribe((secteurGetted) =>{
+        this.secteur = secteurGetted;
+      })
   }
 
 }
