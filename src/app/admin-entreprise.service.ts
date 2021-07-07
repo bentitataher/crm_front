@@ -10,14 +10,19 @@ export class AdminEntrepriseService {
     private http: HttpClient
   ) { }
 
-  // Get All Secteurs
+  // Get All Entreprise
   getAllService() {
-    return this.http.get("http://localhost:3000/entreprise/admin")
+    return this.http.get("http://localhost:3000/admin-entreprise/")
   }
 
-  // SUpprimer Secteurs
+  // Ajouter entreprise
+  ajoutService(data){
+    return this.http.post("http://localhost:3000/admin-entreprise/signup", data)
+  }
+
+  // Supprimer Entreprise
   deleteService(id) {
-    return this.http.delete("http://localhost:3000/entreprise/admin/" + id)
+    return this.http.delete("http://localhost:3000/admin-entreprise/" + id)
   }
 
 }
