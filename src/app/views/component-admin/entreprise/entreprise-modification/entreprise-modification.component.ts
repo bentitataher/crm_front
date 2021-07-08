@@ -13,7 +13,8 @@ export class EntrepriseModificationComponent implements OnInit {
 
   public secteur: any;
   public entreprise: any;
-  public id : any
+  public id: any;
+  public logoUpload: File;
 
   constructor(
     private _adminSecteurService: AdminSecteurService,
@@ -21,18 +22,23 @@ export class EntrepriseModificationComponent implements OnInit {
     private route: ActivatedRoute
   ) { }
 
+  onFileSelect(event) {
+    this.logoUpload = event.target.files[0];
+    console.log("LogoUploaded ==> : ", this.logoUpload)
+  }
+
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id')
 
-    this._adminSecteurService.getAllService()
-      .subscribe((secteurGetted) => {
-        this.secteur = secteurGetted;
-      })
-
     this._adminEntrepriseService.getOneService(this.id)
-      .subscribe( (entrepriseGetted) =>{
+      .subscribe((entrepriseGetted) => {
         this.adminEditCompanyForm.patchValue(entrepriseGetted)
       })
+    
+    this._adminSecteurService.getAllService()
+    .subscribe( (secteurGuetted) =>{
+      this.secteur = secteurGuetted
+    })
   }
 
   adminEditCompanyForm = new FormGroup({
@@ -40,23 +46,16 @@ export class EntrepriseModificationComponent implements OnInit {
     email: new FormControl(''),
     password: new FormControl(''),
     secteur: new FormControl(''),
-    logo: new FormControl(''),
+    // logo: new FormControl(''),
     tel: new FormControl(''),
     fax: new FormControl(''),
     siegeSocial: new FormControl(''),
     description: new FormControl('')
   })
 
-  modifier() {
-    let data = this.adminEditCompanyForm.value;
-    let id = this.id
-
-    console.log(
-      "Form value test ==>", data,
-      "\nGetting id test ==>", id
-    );
-
-
+  modifier(){
+    console.log("test edit");
+    
   }
 
 }
