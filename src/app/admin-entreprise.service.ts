@@ -15,6 +15,11 @@ export class AdminEntrepriseService {
     return this.http.get("http://localhost:3000/admin-entreprise/")
   }
 
+  // Get One entreprise
+  getOneService(id){
+    return this.http.get("http://localhost:3000/admin-entreprise/" + id)
+  }
+
   // Ajouter entreprise
   ajoutService(data){
     return this.http.post("http://localhost:3000/admin-entreprise/signup", data)
