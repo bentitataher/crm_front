@@ -20,6 +20,11 @@ export class AdminEntrepriseService {
     return this.http.post("http://localhost:3000/admin-entreprise/signup", data)
   }
 
+  // Modifier entreprise
+  editService(data, id){
+    return this.http.put("http://localhost:3000/admin-entreprise/" + id, data)
+  }
+
   // Supprimer Entreprise
   deleteService(id) {
     return this.http.delete("http://localhost:3000/admin-entreprise/" + id)

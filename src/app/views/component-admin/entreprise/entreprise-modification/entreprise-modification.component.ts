@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { AdminEntrepriseService } from '../../../../admin-entreprise.service';
 import { AdminSecteurService } from '../../../../admin-secteur.service';
 
@@ -11,16 +12,23 @@ import { AdminSecteurService } from '../../../../admin-secteur.service';
 export class EntrepriseModificationComponent implements OnInit {
 
   public secteur: any;
+  public entreprise : any;
 
   constructor(
     private _adminSecteurService: AdminSecteurService,
-    private _adminEntrepriseService : AdminEntrepriseService
+    private _adminEntrepriseService : AdminEntrepriseService,
+    private route : ActivatedRoute
   ) { }
 
   ngOnInit(): void {
     this._adminSecteurService.getAllService()
       .subscribe((secteurGetted) => {
         this.secteur = secteurGetted;
+      })
+
+    this._adminEntrepriseService.getAllService()
+      .subscribe((companyGetted) =>{
+        this.entreprise = companyGetted;
       })
   }
 
@@ -29,11 +37,23 @@ export class EntrepriseModificationComponent implements OnInit {
     email: new FormControl(''),
     password: new FormControl(''),
     secteur: new FormControl(''),
-    // logo: new FormControl(''),
+    logo: new FormControl(''),
     tel: new FormControl(''),
     fax: new FormControl(''),
     siegeSocial: new FormControl(''),
     description: new FormControl('')
   })
+
+  modifier(){
+    let data = this.adminEditCompanyForm.value;
+    let id = this.route.snapshot.paramMap.get('id')
+
+    console.log(
+      "Form value test ==>", data,
+      "\nGetting id test ==>", id
+    );
+    
+
+  }
 
 }
