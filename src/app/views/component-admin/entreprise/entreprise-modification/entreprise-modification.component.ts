@@ -34,11 +34,11 @@ export class EntrepriseModificationComponent implements OnInit {
       .subscribe((entrepriseGetted) => {
         this.adminEditCompanyForm.patchValue(entrepriseGetted)
       })
-    
+
     this._adminSecteurService.getAllService()
-    .subscribe( (secteurGuetted) =>{
-      this.secteur = secteurGuetted
-    })
+      .subscribe((secteurGuetted) => {
+        this.secteur = secteurGuetted
+      })
   }
 
   adminEditCompanyForm = new FormGroup({
@@ -53,9 +53,22 @@ export class EntrepriseModificationComponent implements OnInit {
     description: new FormControl('')
   })
 
-  modifier(){
-    console.log("test edit");
-    
+  modifier() {
+    let data = this.adminEditCompanyForm.value;
+
+    const formData = new FormData();
+    Object.keys(data).forEach((key) => {
+      formData.append(key, data[key])
+    });
+
+    formData.append('image', this.logoUpload, this.logoUpload.name);
+
+    this._adminEntrepriseService.editService(formData, this.id)
+      .subscribe((editedEntreprise) => {
+        console.log(editedEntreprise);
+
+      })
+
   }
 
 }
